@@ -12,6 +12,14 @@
 
 #include "LibCKayke.h"
 
+
+float min(float a, float b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
 t_player_pos_view init_pos_view(void)
 {
 	t_player_pos_view pos_view;

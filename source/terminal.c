@@ -14,7 +14,7 @@
 
 void	init_terminal(void)
 {
-	tccgetattr(STDIN_FILENO, &g_old_termios);
+	tcgetattr(STDIN_FILENO, &g_old_termios);
 	g_new_termios = g_old_termios;
 	g_new_termios.c_lflag &= ~(ICANON | ECHO);
 	tcsetattr(STDIN_FILENO, TCSANOW, &g_new_termios);

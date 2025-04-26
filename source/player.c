@@ -99,3 +99,36 @@ void place_block(t_vector pos, char*** blocks, char block)
 		break;
 	}
 }
+
+t_vector get_current_block(t_player_pos_view posview, char*** blocks) {
+    t_vector pos = posview.pos;
+    t_vector dir = angles_to_vector(posview.view);
+    float eps = 0.01;
+    while (!ray_outside(pos)) {
+        char c = blocks[(int)pos.z][(int)pos.y][(int)pos.x];
+        if (c != ' ') {
+            return pos;
+        }
+        float dist = 2;
+        if (dir.x > eps) {
+            dist = min(dist, ((int)(pos.x + 1) - pos.x) / dir.x);
+        }
+        else if (dir.x < -eps) {
+            dist = min(dist, ((int)pos.x - pos.x) / dir.x);
+        }
+        if (dir.y > eps) {
+            dist = min(dist, ((int)(pos.y + 1) - pos.y) / dir.y);
+        }
+        else if (dir.y < -eps) {
+            dist = min(dist, ((int)pos.y - pos.y) / dir.y);
+        }
+        if (dir.z > eps) {
+            dist = min(dist, ((int)(pos.z + 1) - pos.z) / dir.z);
+        }
+        else if (dir.z < -eps) {
+            dist = min(dist, ((int)pos.z - pos.z) / dir.z);
+        }
+        pos = vect_add(pos, vect_scale(dist + eps, dir));
+    }
+    return pos;
+}
