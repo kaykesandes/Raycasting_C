@@ -102,6 +102,13 @@ char** get_picture(char** picture, t_player_pos_view posview, char*** blocks);
 void	process_input(void);
 int is_key_pressed(char key);
 
+//Funções de desenho   
+void draw_ascii(char** picture);
+
+//Funções de player
+void update_pos_view(t_player_pos_view* posview, char*** blocks);
+void place_block(t_vector pos, char*** blocks, char block);
+
 struct s_aiocb
 {
     int aio_fildes;
