@@ -22,7 +22,7 @@ char** init_picture(void)
     return picture;
 }
 
-char*** init_block()
+char*** init_blocks()
 {
 	char*** block = malloc(sizeof(char**) * Z_BLOCKS);
 	for (int i = 0; i < Z_BLOCKS; i++)
@@ -55,8 +55,8 @@ t_vector** init_directions(t_vector2 view)
 
 	t_vector screen_mid_vert = vect_scale(0.5, vect_add(screen_up, screen_down));
 	t_vector screen_mid_hor = vect_scale(0.5, vect_add(screen_left, screen_right));
-	t_vector mid_to_left = vect_sub(screen_mid_hor, screen_left);
-	t_vector mid_to_up = vect_sub(screen_mid_vert, screen_up);
+    t_vector mid_to_left = vect_sub(screen_left, screen_mid_hor);
+    t_vector mid_to_up = vect_sub(screen_up, screen_mid_vert);
 
 	t_vector** dir = malloc(sizeof(t_vector*) * Y_PIXELS);
 	for (int i = 0; i < Y_PIXELS; i++)

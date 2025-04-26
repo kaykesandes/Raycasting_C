@@ -37,7 +37,7 @@ typedef unsigned int useconds_t;
 
 static struct termios g_old_termios;
 static struct termios g_new_termios;
-static char keystate[256] = {0};
+extern char keystate[256];
 
 typedef struct s_vector
 {
@@ -76,7 +76,7 @@ double fabs(double x);
 
 //Function de inicialização
 char** init_picture(void);
-char*** init_block();
+char*** init_blocks();
 t_vector** init_directions(t_vector2 view);
 
 //Funções de vetor

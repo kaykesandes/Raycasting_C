@@ -22,11 +22,11 @@ int ray_outside(t_vector pos)
 int on_block_border(t_vector pos)
 {
 	int cnt = 0;
-	if (fabsf(pos.x - round(pos.x)) < BLOCK_BORDER_SIZE)
+	if (fabsf(pos.x - roundf(pos.x)) < BLOCK_BORDER_SIZE)
 		cnt++;
-	if (fabsf(pos.y - round(pos.y)) < BLOCK_BORDER_SIZE)
+	if (fabsf(pos.y - roundf(pos.y)) < BLOCK_BORDER_SIZE)
 		cnt++;
-	if (fabsf(pos.z - round(pos.z)) < BLOCK_BORDER_SIZE)
+	if (fabsf(pos.z - roundf(pos.z)) < BLOCK_BORDER_SIZE)
 		cnt++;
 	if (cnt >= 2)
 		return (1);
@@ -79,4 +79,5 @@ char** get_picture(char** picture, t_player_pos_view posview, char*** blocks)
 			picture[y][x] = raytrace(posview.pos, directions[y][x], blocks);
 		}
 	}
+    return (picture);
 }

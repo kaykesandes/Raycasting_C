@@ -21,8 +21,8 @@ void update_pos_view(t_player_pos_view* posview, char*** blocks)
 	if (blocks[z][y][x] != ' ')
 	    posview->pos.z += 1;
 	z = (int)posview->pos.z - EYE_HEIGHT - 0.01;
-	if (blocks[z][y][x] != ' ')
-	    posview->pos.z -= 1;
+	if (blocks[z][y][x] == ' ')
+		posview->pos.z -= 1;
 
 	if (is_key_pressed('w'))
 	    posview->view.psi += tilt_eps;

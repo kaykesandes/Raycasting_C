@@ -12,6 +12,8 @@
 
 #include "LibCKayke.h"
 
+char keystate[256] = {0};
+
 void	process_input(void) {
 	char c;
 	for(int i = 0; i < 256; i++) 
