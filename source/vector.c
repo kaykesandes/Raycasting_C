@@ -13,7 +13,7 @@
 #include "LibCKayke.h"
 
 
-float min(float a, float b)
+float my_min(float a, float b)
 {
 	if (a < b)
 		return (a);
@@ -35,8 +35,8 @@ t_vector angles_to_vector(t_vector2 angles)
 {
 	t_vector res;
 	res.x = cos(angles.psi) * cos(angles.phi);
-	res.y = sin(angles.psi) * cos(angles.phi);
-	res.z = sin(angles.phi);
+	res.y = cos(angles.psi) * sin(angles.phi);
+	res.z = sin(angles.psi);
 	return (res);
 }
 t_vector vect_add(t_vector v1, t_vector v2)

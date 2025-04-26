@@ -86,7 +86,7 @@ t_vector vect_add(t_vector v1, t_vector v2);
 t_vector vect_scale(float s, t_vector v);
 t_vector vect_sub(t_vector v1, t_vector v2);
 void vect_normalize(t_vector* v);
-float min(float a, float b);
+float my_min(float a, float b);
 
 
 //Funções de terminal

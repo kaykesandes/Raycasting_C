@@ -11,13 +11,15 @@
 /* ************************************************************************** */
 #include "LibCKayke.h"
 
+
 char** init_picture(void)
 {
-	char** picutre = malloc(sizeof(char*) * Y_PIXELS);
-	for (int i = 0; i < Y_PIXELS; i++)
-	{
-		picutre[i] = malloc(sizeof(char) * X_PIXELS);
-	}
+    char** picture = malloc(sizeof(char*) * Y_PIXELS);
+    for (int i = 0; i < Y_PIXELS; i++)
+    {
+        picture[i] = malloc(sizeof(char) * X_PIXELS);
+    }
+    return picture;
 }
 
 char*** init_block()

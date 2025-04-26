@@ -111,22 +111,22 @@ t_vector get_current_block(t_player_pos_view posview, char*** blocks) {
         }
         float dist = 2;
         if (dir.x > eps) {
-            dist = min(dist, ((int)(pos.x + 1) - pos.x) / dir.x);
+            dist = my_min(dist, ((int)(pos.x + 1) - pos.x) / dir.x);
         }
         else if (dir.x < -eps) {
-            dist = min(dist, ((int)pos.x - pos.x) / dir.x);
+            dist = my_min(dist, ((int)pos.x - pos.x) / dir.x);
         }
         if (dir.y > eps) {
-            dist = min(dist, ((int)(pos.y + 1) - pos.y) / dir.y);
+            dist = my_min(dist, ((int)(pos.y + 1) - pos.y) / dir.y);
         }
         else if (dir.y < -eps) {
-            dist = min(dist, ((int)pos.y - pos.y) / dir.y);
+            dist = my_min(dist, ((int)pos.y - pos.y) / dir.y);
         }
         if (dir.z > eps) {
-            dist = min(dist, ((int)(pos.z + 1) - pos.z) / dir.z);
+            dist = my_min(dist, ((int)(pos.z + 1) - pos.z) / dir.z);
         }
         else if (dir.z < -eps) {
-            dist = min(dist, ((int)pos.z - pos.z) / dir.z);
+            dist = my_min(dist, ((int)pos.z - pos.z) / dir.z);
         }
         pos = vect_add(pos, vect_scale(dist + eps, dir));
     }
