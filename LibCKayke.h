@@ -58,6 +58,7 @@ typedef struct s_player_pos_view
     t_vector2 view;
 } t_player_pos_view;
 
+//Function prontas, vamos refazer elas
 ssize_t read(int fd, void *buf, size_t count);
 int usleep(useconds_t usec);
 int fcntl(int fd, int cmd, ...);
@@ -73,6 +74,34 @@ double sin(double x);
 double sqrt(double x);
 double fabs(double x);
 
+//Function de inicialização
+char** init_picture(void);
+char*** init_block();
+t_vector** init_directions(t_vector2 view);
+
+//Funções de vetor
+t_player_pos_view init_pos_view(void);
+t_vector angles_to_vector(t_vector2 angles);
+t_vector vect_add(t_vector v1, t_vector v2);
+t_vector vect_scale(float s, t_vector v);
+t_vector vect_sub(t_vector v1, t_vector v2);
+void vect_normalize(t_vector* v);
+
+
+//Funções de terminal
+void	init_terminal(void);
+void	restore_terminal(void);
+
+//Funções de raycasting
+int ray_outside(t_vector pos);
+int on_block_border(t_vector pos);
+char raytrace(t_vector pos, t_vector dir, char*** blocks);
+char** get_picture(char** picture, t_player_pos_view posview, char*** blocks);
+
+//Funções de inputKeyboard
+void	process_input(void);
+int is_key_pressed(char key);
+
 struct s_aiocb
 {
     int aio_fildes;
@@ -83,5 +112,12 @@ struct s_aiocb
     int aio_sigevent;
     int aio_lio_opcode;
 };
+
+float min(float a, float b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
 
 #endif
