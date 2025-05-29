@@ -12,32 +12,26 @@
 #include "LibCKayke.h"
 
 
-char** init_picture(void)
-{
+char** init_picture() {
     char** picture = malloc(sizeof(char*) * Y_PIXELS);
-    for (int i = 0; i < Y_PIXELS; i++)
-    {
+    for (int i = 0; i < Y_PIXELS; i++) {
         picture[i] = malloc(sizeof(char) * X_PIXELS);
     }
     return picture;
 }
 
-char*** init_blocks()
-{
-	char*** block = malloc(sizeof(char**) * Z_BLOCKS);
-	for (int i = 0; i < Z_BLOCKS; i++)
-	{
-		block[i] = malloc(sizeof(char*) * Y_BLOCKS);
-		for (int j = 0; j < Y_BLOCKS; j++)
-		{
-			block[i][j] = malloc(sizeof(char) * X_BLOCKS);
-			for (int k = 0; k < X_BLOCKS; k++)
-			{
-				block[i][j][k] = ' ';
-			}
-		}
-	}
-	return (block);
+char*** init_blocks() {
+    char*** blocks = malloc(sizeof(char**) * Z_BLOCKS);
+    for (int i = 0; i < Z_BLOCKS; i++) {
+        blocks[i] = malloc(sizeof(char*) * Y_BLOCKS);
+        for (int j = 0; j < Y_BLOCKS; j++) {
+            blocks[i][j] = malloc(sizeof(char) * X_BLOCKS);
+            for (int k = 0; k < X_BLOCKS; k++) {
+                blocks[i][j][k] = ' ';
+            }
+        }
+    }
+    return blocks;
 }
 
 t_vector** init_directions(t_vector2 view)

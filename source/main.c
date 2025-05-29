@@ -28,42 +28,39 @@ int main(void)
 		}
 	}
 	t_player_pos_view posview = init_pos_view();
-	while (1)
-	{
-		process_input();
-		if (is_key_pressed('q'))
-		{
-			exit(0);
-			update_pos_view(&posview, blocks);
-			t_vector current_block = get_current_block(posview, blocks);
-			int have_current_block = !ray_outside(current_block);
-			int current_block_x = current_block.x;
-			int current_block_y = current_block.y;
-			int current_block_z = current_block.z;
-			char current_block_c;
-			int remove = 0;
-			if (have_current_block)
-			{
-				current_block_c = blocks[current_block_z][current_block_y][current_block_x];
-				blocks[current_block_z][current_block_y][current_block_x] = 'o';
-				if (is_key_pressed('x'))
-				{
-					remove = 1;
-					blocks[current_block_z][current_block_y][current_block_x] = ' ';
-				}
-				if (is_key_pressed('c'))
-				{
-					place_block(current_block, blocks, '@');
-				}
-			}
-			get_picture(picture, posview, blocks);
-			if (have_current_block && !remove) {
-				blocks[current_block_z][current_block_y][current_block_x] = current_block_c;
-			}
-			draw_ascii(picture);
-			usleep(20000);
-		}
-	}
+	while (1) {
+        process_input();
+        if (is_key_pressed('q')) {
+            exit(0);
+        }
+        update_pos_view(&posview, blocks);
+        t_vector current_block = get_current_block(posview, blocks);
+        int have_current_block = !ray_outside(current_block);
+        int current_block_x = current_block.x;
+        int current_block_y = current_block.y;
+        int current_block_z = current_block.z;
+        char current_block_c;
+        int removed = 0;
+        if (have_current_block) {
+            current_block_c = blocks[current_block_z][current_block_y][current_block_x];
+            blocks[current_block_z][current_block_y][current_block_x] = 'o';
+            if (is_key_pressed('x')) {
+                removed = 1;
+                blocks[current_block_z][current_block_y][current_block_x] = ' ';
+            }
+
+            if (is_key_pressed(' ')) {
+                place_block(current_block, blocks, '@');
+            }
+        }
+
+        get_picture(picture, posview, blocks);
+        if (have_current_block && !removed) {
+            blocks[current_block_z][current_block_y][current_block_x] = current_block_c;
+        }
+        draw_ascii(picture);
+        usleep(20000);
+    }
 	restore_terminal();	
 	return (0);
 }

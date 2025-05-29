@@ -35,8 +35,8 @@ typedef unsigned int useconds_t;
 #define VIEW_WIDTH 1
 #define BLOCK_BORDER_SIZE 0.05
 
-static struct termios g_old_termios;
-static struct termios g_new_termios;
+static struct termios g_old_termios __attribute__((unused));
+static struct termios g_new_termios __attribute__((unused));
 extern char keystate[256];
 
 typedef struct s_vector
