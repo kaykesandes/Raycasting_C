@@ -13,16 +13,16 @@
 #ifndef LIBCKAYKE_H
 #define LIBCKAYKE_H
 
-#include <unistd.h>
 #ifndef _USECONDS_T
 typedef unsigned int useconds_t;
 #endif
-#include <fcntl.h>
-#include <stdio.h>
-#include <stdint.h>
-#include <termios.h>
-#include <stdlib.h>
-#include <math.h>
+
+#include <unistd.h> // read, usleep
+#include <fcntl.h> // fcntl
+#include <stdio.h> // printf, fflush
+#include <termios.h> // tcgetattr, tcsetattr
+#include <stdlib.h> // malloc, free, exit
+#include <math.h>  // cos, sin, sqrt, fabs
 
 
 #define Y_PIXELS 180
