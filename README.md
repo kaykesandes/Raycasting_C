@@ -96,6 +96,8 @@ O projeto foi desenvolvido e testado em ambiente Linux.
 
 ## Autor
 
+- <a href="https://www.notion.so/Raycasting-Conceito-20986a134ba58026832dfd520dc03bc2?source=copy_link">Meu Notion, explicando mais detalhado</a>
+
 - Kayke Gy (kaykegy@proton.me)
 
 ---
