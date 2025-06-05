@@ -1,6 +1,8 @@
-# Minicraft in Terminal (TCC - CC 2026)
+# Raycasting com minecraft
 
 Este projeto é uma implementação simplificada de um jogo estilo "Minecraft" rodando inteiramente no terminal, desenvolvido como Trabalho de Conclusão de Curso (TCC) para o curso de Ciência da Computação (2026).
+
+> **Destaque:** O principal foco do projeto é a implementação de um sistema de **raycasting** em C puro para renderizar um ambiente 3D de blocos em ASCII no terminal, simulando visão em primeira pessoa de forma eficiente e didática.
 
 ## Sumário
 
@@ -15,7 +17,10 @@ Este projeto é uma implementação simplificada de um jogo estilo "Minecraft" r
 
 ## Descrição
 
-O projeto simula um ambiente 3D de blocos, permitindo ao usuário navegar, visualizar e interagir com o mundo usando apenas o teclado. O "mundo" é renderizado em ASCII diretamente no terminal, utilizando técnicas de raycasting para simular a visão em primeira pessoa.
+O projeto simula um ambiente 3D de blocos, permitindo ao usuário navegar, visualizar e interagir com o mundo usando apenas o teclado.  
+O **diferencial** deste trabalho é o uso de técnicas de **raycasting** para renderizar o mundo em ASCII diretamente no terminal, proporcionando uma experiência de visão em primeira pessoa semelhante a jogos clássicos, mas totalmente em modo texto.
+
+O raycasting é responsável por calcular, para cada "raio" disparado da posição do jogador, qual bloco é atingido e como ele deve ser exibido na tela, levando em conta ângulo de visão, profundidade e obstáculos.
 
 ## Controles
 
@@ -67,7 +72,7 @@ O projeto simula um ambiente 3D de blocos, permitindo ao usuário navegar, visua
   Funções matemáticas para manipulação de vetores e ângulos.
 
 - **source/raycasting.c**  
-  Implementa o algoritmo de raycasting para renderização do mundo em ASCII.
+  **Coração do projeto:** Implementa o algoritmo de raycasting para renderização do mundo em ASCII.
 
 - **source/draw.c**  
   Responsável por desenhar o mundo no terminal usando caracteres ASCII e cores.
